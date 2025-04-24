@@ -9,7 +9,7 @@ This repository contains the solution to Crypto.com's QA Challenge for automatin
 
 ## 📱 Overview
 
-We use **Python + Appium + Pytest** to verify that the **9-day forecast** screen in the MyObservatory app:
+Used **Python + Appium + Pytest** to verify that the **9-day forecast** screen in the MyObservatory app:
 - Successfully launches on an emulator
 - Navigates to the 9-day forecast screen
 - Verifies the forecast data of the **first day** matches the expected date and weekday
