@@ -1,8 +1,5 @@
-Here's your complete `README.md` for the Crypto.com QA challenge project:
 
 ---
-
-```markdown
 # QA Automation Challenge - Crypto.com (MyObservatory App)
 
 This repository contains the solution to Crypto.com's QA Challenge for automating the verification of the weather forecast in the **MyObservatory** mobile app by the Hong Kong Observatory.
