@@ -1,3 +1,7 @@
 /.idea
 /__pycache__
 assets/style.css
+/page/__pycache__
+/locators/__pycache__
+/tests/__pycache__
+/utils/__pycache__
