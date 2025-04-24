@@ -3,8 +3,8 @@ from appium import webdriver
 from appium.options.android import UiAutomator2Options
 from pathlib import Path
 from appium.options.common.full_reset_option import FULL_RESET
+from core.AppiumEnvironment import AppiumEnvironment
 
-from AppiumEnvironment import AppiumEnvironment
 
 
 # configuration for Appium and Android emulator
@@ -26,9 +26,13 @@ def appium_env():
     - Starts the Appium environment before the test session.
     - Stops the Appium environment after the test session.
     """
-    env = AppiumEnvironment() # Initialize the AppiumEnvironment instance
+    env = AppiumEnvironment(
+        avd_name=AVD_NAME,
+        emulator_path=EMULATOR_PATH,
+        port=PORT
+    ) # Initialize the AppiumEnvironment instance
     env.start() # Start the Appium environment
-    yield # Yield control to the test session
+    yield env   # Yield control to the test session
     env.stop() # Stop the Appium environment after the session
 
 @pytest.fixture(scope="session")

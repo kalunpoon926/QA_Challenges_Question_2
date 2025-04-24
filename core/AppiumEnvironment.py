@@ -1,11 +1,7 @@
-# AppiumEnvironment.py
-
 import subprocess
 import os
 import time
 import signal
-
-import conftest
 
 
 class AppiumEnvironment:
@@ -13,7 +9,7 @@ class AppiumEnvironment:
     A class to manage the Appium testing environment, including starting and stopping
     the Android emulator and Appium server.
     """
-    def __init__(self):
+    def __init__(self, avd_name, emulator_path, port):
         """
         Initialize the AppiumEnvironment instance.
 
@@ -23,6 +19,9 @@ class AppiumEnvironment:
             appium_process: subprocess.Popen
                 - Process object for the Appium server.
         """
+        self.avd_name = avd_name
+        self.emulator_path = emulator_path
+        self.port = port
         self.emulator_process = None
         self.appium_process = None
 
@@ -33,15 +32,14 @@ class AppiumEnvironment:
         - Launches the emulator using the AVD name specified in `conftest`.
         - Waits for the emulator to boot up.
         """
-        print(f"📱 Starting emulator: {conftest.AVD_NAME}")
+        print(f"📱 Starting emulator: {self.avd_name}")
         self.emulator_process = subprocess.Popen(
-            [conftest.EMULATOR_PATH, "-avd", conftest.AVD_NAME],
+            [self.emulator_path, "-avd", self.avd_name],
             stdout=subprocess.DEVNULL,  # Suppress standard output
             stderr=subprocess.DEVNULL   # Suppress error output
         )
         print("⌛ Waiting for emulator to boot...")
         time.sleep(5)
-
 
     def start_appium(self):
         """
@@ -52,12 +50,12 @@ class AppiumEnvironment:
         """
         print("🚀 Starting Appium server...")
         self.appium_process = subprocess.Popen(
-            ["appium", "--port", str(conftest.PORT)],
+            ["appium", "--port", str(self.port)],
             stdout=subprocess.DEVNULL,  # Suppress standard output
             stderr=subprocess.DEVNULL,  # Suppress error output
-            preexec_fn=os.setsid        # Start the process in a new session
+            preexec_fn=os.setsid
         )
-        time.sleep(5) # Wait for the server to initialize
+        time.sleep(5)
         print("✅ Appium server is running.")
 
     def start(self):

@@ -138,6 +138,10 @@ Use **Appium Inspector** to inspect and locate elements:
 📦QA_Challenges_Question_2
  ┣ 📂build
  ┃ ┗ 📄MyObservatory_v1_0.apk
+ ┣ 📂core
+ ┃ ┗ 📄__init__.py
+ ┃ ┗ 📄AppiumEnvironment.py
+ ┃ ┗ 📄logger_config.py
  ┣ 📂locators
  ┃ ┗ 📄forecast_screen.py
  ┣ 📂page
@@ -147,8 +151,6 @@ Use **Appium Inspector** to inspect and locate elements:
  ┣ 📂utils
  ┃ ┣ 📄date_utils.py
  ┣ 📄conftest.py
- ┣ 📄logger_config.py
- ┣ 📄AppiumEnvironment.py
  ┣ 📄poetry.lock
  ┣ 📄pyproject.toml
  ┗ 📄README.md

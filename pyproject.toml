@@ -4,6 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Simon Poon <kalunpoon926@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "core" },
+    { include = "page" },
+]
 
 [tool.poetry.dependencies]
 python = ">=3.13"

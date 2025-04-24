@@ -1,9 +1,13 @@
 import pytest
 from page.basepage import BasePage
+from conftest import driver
 import locators.forecast_screen as locators
 import utils.date_utils as date_utils
-from logger_config import setup_logger
+from core.logger_config import setup_logger
+import sys
+import os
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 logger = setup_logger(__name__)
 
